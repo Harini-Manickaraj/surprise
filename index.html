@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Global Floating Back Button (Hidden on Scene 1, Visible on Scenes 2–10) -->
+  <button id="global-back-btn" class="global-back-btn" type="button" hidden aria-label="Go back to previous scene">
+    &larr; Back
+  </button>
+
+  <main id="app">
+    <!-- Scene 1: Mysterious Beginning -->
+    <section id="scene-1" class="scene is-active" aria-live="polite">
+      <div class="intro-container">
+        <p id="intro-text" class="intro-text"></p>
+        <button id="curious-btn" class="btn-primary intro-btn" type="button" hidden>
+          Click Me
+        </button>
+      </div>
+    </section>
+
+    <!-- Scene 2: Notebook Story & Fighting Cats -->
+    <section id="scene-2" class="scene scene-notebook" hidden aria-live="polite">
+      <div class="notebook-page">
+        <!-- Interactive Fighting Cats Stage (Top of Notebook Page) -->
+        <div id="cats-stage" class="cats-stage" aria-label="Animated cartoon cats play-fighting over Gems chocolates">
+          <!-- Elder Brother Cat -->
+          <div id="cat-bro" class="cat cat-bro" role="button" tabindex="0" aria-label="Elder brother cat, click to pounce">
+            <span id="cat-bro-bubble" class="speech-bubble" hidden>Hey!</span>
+
+            <svg class="cat-svg" viewBox="0 0 120 110" width="120" height="110" aria-hidden="true">
+              <!-- Tail -->
+              <path class="cat-tail" d="M26 78 Q8 64 16 44" fill="none" stroke="#d97742" stroke-width="8" stroke-linecap="round" />
+              <!-- Body -->
+              <ellipse cx="56" cy="76" rx="28" ry="22" fill="#e88d56" />
+              <!-- Belly patch -->
+              <ellipse cx="62" cy="79" rx="14" ry="13" fill="#fde6d2" />
+              <!-- Ears -->
+              <polygon points="38,34 45,14 56,28" fill="#e88d56" />
+              <polygon points="62,28 74,14 80,34" fill="#e88d56" />
+              <polygon points="42,31 46,19 53,28" fill="#f7b7b7" />
+              <polygon points="65,28 73,19 76,31" fill="#f7b7b7" />
+              <!-- Head -->
+              <circle cx="60" cy="44" r="22" fill="#e88d56" />
+              <!-- Tabby stripes -->
+              <path d="M55 24 L57 31 M60 23 L60 30 M65 24 L63 31" stroke="#b85928" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Grumpy cute eyebrows & eyes -->
+              <line x1="48" y1="38" x2="56" y2="41" stroke="#3b2820" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="72" y1="38" x2="64" y2="41" stroke="#3b2820" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="53" cy="44" r="3" fill="#2b211d" />
+              <circle cx="68" cy="44" r="3" fill="#2b211d" />
+              <!-- Nose & mouth -->
+              <polygon points="59,49 63,49 61,52" fill="#f0788c" />
+              <path d="M57 54 Q61 51 65 54" fill="none" stroke="#3b2820" stroke-width="2" stroke-linecap="round" />
+              <!-- Whiskers -->
+              <path d="M36 46 L46 47 M36 51 L46 50 M75 47 L85 46 M75 50 L85 51" stroke="#6b4433" stroke-width="1.5" stroke-linecap="round" />
+              <!-- Swiping front paw -->
+              <g class="cat-paw cat-paw-bro">
+                <ellipse cx="86" cy="70" rx="11" ry="7" fill="#fde6d2" stroke="#d97742" stroke-width="2" />
+              </g>
+            </svg>
+
+            <span class="cat-label">Big Bro</span>
+          </div>
+
+          <!-- Pile of Gems Chocolates Between the Cats -->
+          <div id="gems-pile" class="gems-pile" aria-hidden="true">
+            <span class="gem gem-red"></span>
+            <span class="gem gem-yellow"></span>
+            <span class="gem gem-blue"></span>
+            <span class="gem gem-green"></span>
+            <span class="gem gem-orange"></span>
+            <span class="gem gem-purple"></span>
+            <span class="gem gem-pink"></span>
+            <span class="gem gem-teal"></span>
+            <span class="gem gem-gold"></span>
+          </div>
+
+          <!-- Comic Clash Popup in Center -->
+          <div id="comic-clash" class="comic-clash" hidden>6 vs 7!</div>
+
+          <!-- Younger Sister Cat -->
+          <div id="cat-sis" class="cat cat-sis" role="button" tabindex="0" aria-label="Younger sister cat, click to pounce">
+            <span id="cat-sis-bubble" class="speech-bubble" hidden>Mine!</span>
+
+            <svg class="cat-svg" viewBox="0 0 120 110" width="120" height="110" aria-hidden="true">
+              <!-- Tail -->
+              <path class="cat-tail" d="M94 78 Q112 64 104 44" fill="none" stroke="#5b6478" stroke-width="8" stroke-linecap="round" />
+              <!-- Body -->
+              <ellipse cx="64" cy="76" rx="26" ry="21" fill="#737e96" />
+              <!-- Belly patch -->
+              <ellipse cx="58" cy="79" rx="13" ry="12" fill="#f3f4f8" />
+              <!-- Ears -->
+              <polygon points="40,34 46,14 58,28" fill="#737e96" />
+              <polygon points="64,28 75,14 82,34" fill="#737e96" />
+              <polygon points="43,31 47,19 54,28" fill="#f7b7c8" />
+              <polygon points="67,28 74,19 78,31" fill="#f7b7c8" />
+              <!-- Cute bow on ear -->
+              <circle cx="77" cy="24" r="3.5" fill="#f472b6" />
+              <!-- Head -->
+              <circle cx="60" cy="44" r="21" fill="#737e96" />
+              <!-- Mischievous eyes -->
+              <circle cx="51" cy="43" r="3.2" fill="#1e222b" />
+              <circle cx="66" cy="43" r="3.2" fill="#1e222b" />
+              <circle cx="52" cy="42" r="1" fill="#ffffff" />
+              <circle cx="67" cy="42" r="1" fill="#ffffff" />
+              <!-- Nose & cheeky ":3" mouth -->
+              <polygon points="56,48 60,48 58,51" fill="#f472b6" />
+              <path d="M53 53 Q56 56 58 52 Q60 56 63 53" fill="none" stroke="#1e222b" stroke-width="2" stroke-linecap="round" />
+              <!-- Whiskers -->
+              <path d="M35 45 L45 46 M35 50 L45 49 M72 46 L82 45 M72 49 L82 50" stroke="#3c4352" stroke-width="1.5" stroke-linecap="round" />
+              <!-- Swiping front paw -->
+              <g class="cat-paw cat-paw-sis">
+                <ellipse cx="34" cy="70" rx="11" ry="7" fill="#f3f4f8" stroke="#5b6478" stroke-width="2" />
+              </g>
+            </svg>
+
+            <span class="cat-label">Lil Sis</span>
+          </div>
+        </div>
+
+        <p class="cats-hint">Tip: Click either cat to fight over the Gems!</p>
+
+        <!-- [EDITABLE] Change the heading and story paragraphs below to match your own memories -->
+        <h2 class="notebook-heading">Namma Golden Days... 🍫</h2>
+
+        <div id="notebook-story" class="notebook-story">
+          <p>
+            Namma onna thaan school-ku povom. athuvum 4 members ottuka. First school memory-eh semma comedy—nee 7th
+            padikura apo, un kitta irunthu enoda passport size photo vaangitu vara solli enga class miss
+            enna anupunaanga. Naa permission kooda kekama direct-ah un class kulla poiten!
+            Apo Kaleeshwari ma'am enna kooptu half an hour class eduthaanga. Unna ellar
+            munnadiyum embarrass panniten nu theriyum... aana nee enna oru vaarthai kooda
+            thittala!
+          </p>
+          <p>
+            Adhukaprom namma adikadi antha Gems chocolate-kaga podra sandai irukke!
+            Epdiyachum yaaravathu oruthar kitta extra-va oru Gems vanthurum, aprom Appa
+            thaan vandhu atha pirichu kuduthu samadhanam pannuvaaru. Athu ellam namma
+            golden days la...
+          </p>
+          <p>
+            Enna thaan namma ipdi daily sanda potalum, Amma illatha nerathula enna romba
+            nalla pathukitta. Always grateful for you, Anna.
+          </p>
+        </div>
+        <!-- [/EDITABLE] -->
+
+        <div class="notebook-actions">
+          <button id="scene2-next-btn" class="btn-notebook" type="button">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 3: Google Gravity Gallery -->
+    <section id="scene-3" class="scene scene-gallery" hidden aria-live="polite">
+      <p id="gravity-hint" class="gravity-hint">
+        Click me anywhere and see the magic ✨
+      </p>
+
+      <p id="gravity-subhint" class="gravity-subhint" hidden>
+        Drag &amp; throw photos around — or tap any photo to view it up close 👀
+      </p>
+
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- 55 compact photo frames are generated dynamically from GALLERY_PHOTOS in script.js -->
+      </div>
+
+      <!-- Mini micro-feedback tooltip for triple-click ("2 more...", "1 more...") -->
+      <div id="tap-tooltip" class="tap-tooltip" hidden aria-hidden="true"></div>
+
+      <!-- Multi-stage Cheeky Popup (photos stay live behind it) -->
+      <div id="gravity-popup" class="gravity-popup" hidden role="dialog" aria-labelledby="gravity-popup-text">
+        <p id="gravity-popup-text" class="gravity-popup-text"></p>
+        <button id="scene3-next-btn" class="btn-primary gravity-continue-btn" type="button" hidden>
+          Continue
+        </button>
+      </div>
+
+      <!-- Lightbox Overlay for Triple-Clicked Photo -->
+      <div id="photo-lightbox" class="photo-lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged memory photo">
+        <div class="lightbox-card">
+          <button id="lightbox-close-btn" class="lightbox-close" type="button" aria-label="Close photo">
+            &times;
+          </button>
+          <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged memory">
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 4: Don't Click (The Trap) -->
+    <section id="scene-4" class="scene scene-trap" hidden aria-live="polite">
+      <div id="trap-container" class="trap-container">
+        <div id="click-strikes" class="click-strikes" aria-label="Warning strikes: 0 of 3">
+          <span class="strike-dot"></span>
+          <span class="strike-dot"></span>
+          <span class="strike-dot"></span>
+        </div>
+
+        <p id="trap-warning" class="trap-warning">
+          Seriously. Just leave it alone.
+        </p>
+
+        <div id="dont-click-wrap" class="dont-click-wrap">
+          <button id="dont-click-btn" class="dont-click-btn" type="button">
+            DON'T CLICK
+          </button>
+        </div>
+      </div>
+
+      <div id="alarm-flash" class="alarm-flash" hidden aria-hidden="true"></div>
+    </section>
+
+    <!-- Scene 5: Rage Bait Mode -->
+    <section id="scene-5" class="scene scene-rage" hidden aria-live="polite">
+      <div id="rage-card" class="rage-card">
+        <div id="rage-banner" class="rage-banner">
+          I SAID YOU NOT TO DO IT! SEE NOW YOU'RE IN TROUBLE!
+        </div>
+
+        <!-- Live Sibling Rage Meter -->
+        <div class="rage-meter-wrap">
+          <div class="rage-meter-header">
+            <span>Sibling Rage Meter</span>
+            <span id="rage-meter-label" class="rage-meter-label">60%</span>
+          </div>
+          <div class="rage-meter-track" aria-hidden="true">
+            <div id="rage-meter-bar" class="rage-meter-bar" style="width: 60%;"></div>
+          </div>
+        </div>
+
+        <div id="rage-stage" class="rage-stage">
+          <!-- Step 1 & 2: Fake Account Scan, Confetti Celebration & Dodging Skip -->
+          <div id="sub-scan-box" class="rage-step">
+            <div id="scan-spinner" class="scan-spinner" aria-hidden="true"></div>
+            <p id="scan-status" class="scan-status">
+              Detecting bank account &amp; wallet details...
+            </p>
+            <div id="scan-track" class="loader-track" aria-hidden="true">
+              <div id="scan-bar" class="scan-bar"></div>
+            </div>
+
+            <div id="sub-offer-panel" class="sub-offer-panel" hidden>
+              <p class="sub-congrats-text">
+                🎉 CONGRATULATIONS! You have unlocked the <strong>PREMIUM SISTER SUBSCRIPTION</strong> — FREE for your entire lifetime! Lucky guy! 👑✨
+              </p>
+              <p id="sub-taunt" class="sub-taunt">
+                Claim your once-in-a-lifetime blessing below:
+              </p>
+              <div id="sub-arena" class="sub-arena">
+                <button id="sub-unlock-btn" class="sub-unlock-btn" type="button">
+                  Unlock
+                </button>
+                <button id="sub-skip-btn" class="sub-skip-btn" type="button">
+                  Skip
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Typing Message + Runaway Apology Button -->
+          <div id="apology-box" class="rage-step" hidden>
+            <p id="apology-taunt" class="rage-taunt apology-taunt"></p>
+            <div id="runaway-arena" class="runaway-arena" hidden>
+              <button id="runaway-btn" class="runaway-btn" type="button">
+                Sorry, you're the best sister
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: Single Combined Rigged Sibling Quiz (3-Heart Arcade Lives) -->
+          <div id="rigged-quiz-box" class="rage-step" hidden>
+            <div id="quiz-hearts" class="quiz-hearts" aria-label="Lives remaining: 3 of 3">
+              <svg class="pixel-heart" viewBox="0 0 11 10" width="32" height="29" shape-rendering="crispEdges" aria-hidden="true">
+                <path class="pixel-heart-outline" d="M2 0h2v1h1v1h1V1h1V0h2v1h1v1h1v3h-1v1H9v1H8v1H7v1H6v1H5V9H4V8H3V7H2V6H1V5H0V2h1V1h1V0z"/>
+                <path class="pixel-heart-fill" d="M2 1h2v1h1v1h1V2h1V1h2v1h1v3H9v1H8v1H7v1H6v1H5V8H4V7H3V6H2V5H1V2h1V1z"/>
+                <path class="pixel-heart-shine" d="M8 2h1v2H8V2z"/>
+              </svg>
+              <svg class="pixel-heart" viewBox="0 0 11 10" width="32" height="29" shape-rendering="crispEdges" aria-hidden="true">
+                <path class="pixel-heart-outline" d="M2 0h2v1h1v1h1V1h1V0h2v1h1v1h1v3h-1v1H9v1H8v1H7v1H6v1H5V9H4V8H3V7H2V6H1V5H0V2h1V1h1V0z"/>
+                <path class="pixel-heart-fill" d="M2 1h2v1h1v1h1V2h1V1h2v1h1v3H9v1H8v1H7v1H6v1H5V8H4V7H3V6H2V5H1V2h1V1z"/>
+                <path class="pixel-heart-shine" d="M8 2h1v2H8V2z"/>
+              </svg>
+              <svg class="pixel-heart" viewBox="0 0 11 10" width="32" height="29" shape-rendering="crispEdges" aria-hidden="true">
+                <path class="pixel-heart-outline" d="M2 0h2v1h1v1h1V1h1V0h2v1h1v1h1v3h-1v1H9v1H8v1H7v1H6v1H5V9H4V8H3V7H2V6H1V5H0V2h1V1h1V0z"/>
+                <path class="pixel-heart-fill" d="M2 1h2v1h1v1h1V2h1V1h2v1h1v3H9v1H8v1H7v1H6v1H5V8H4V7H3V6H2V5H1V2h1V1z"/>
+                <path class="pixel-heart-shine" d="M8 2h1v2H8V2z"/>
+              </svg>
+            </div>
+
+            <p id="quiz-question" class="rage-taunt">
+              Who is smarter, cooler, and good looking?
+            </p>
+
+            <div id="quiz-buttons" class="quiz-buttons">
+              <button id="quiz-bro-btn" class="quiz-bro-btn" type="button">
+                Yuvan
+              </button>
+              <button id="quiz-sis-btn" class="quiz-sis-btn" type="button">
+                Harini
+              </button>
+            </div>
+
+            <button id="quiz-renew-btn" class="quiz-renew-btn" type="button" hidden>
+              Renew Hearts ❤️
+            </button>
+
+            <p id="quiz-feedback" class="quiz-feedback" aria-live="assertive"></p>
+          </div>
+
+          <!-- Step 5: Unlocked Lifetime Subscription Finale -->
+          <div id="sub-unlocked-finale" class="rage-step" hidden>
+            <div class="finale-celebration-card">
+              <p class="finale-celebration-title">
+                🎉 YOU HAVE UNLOCKED THE LIFETIME PREMIUM SISTER SUBSCRIPTION! 👑💛
+              </p>
+              <p class="finale-celebration-note">
+                (No refunds, no cancellations — stuck with me forever!)
+              </p>
+            </div>
+            <button id="scene5-next-btn" class="sub-unlock-btn finale-continue-btn" type="button">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confetti / Firecracker Burst Overlay -->
+      <div id="cracker-burst-layer" class="cracker-burst-layer" aria-hidden="true"></div>
+
+      <!-- Fiery Animated Floor & Rising Embers -->
+      <div id="rage-fire-floor" class="rage-fire-floor" aria-hidden="true">
+        <div class="fire-glow"></div>
+        <div class="flames-row">
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+        </div>
+        <div class="embers-layer">
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+          <span class="ember"></span>
+        </div>
+      </div>
+
+      <div id="rage-flash" class="alarm-flash" hidden aria-hidden="true"></div>
+    </section>
+
+    <!-- Scene 6: Polaroid Memories -->
+    <section id="scene-6" class="scene scene-polaroids" hidden aria-live="polite">
+      <button id="polaroid-audio-btn" class="polaroid-audio-btn" type="button" aria-pressed="false">
+        🎵 Music: On
+      </button>
+
+      <div class="polaroids-header">
+        <h2 class="polaroids-heading">Captured Moments, Unfiltered Memories 🕯️</h2>
+        <p id="polaroid-typed-sub" class="polaroids-hint polaroids-typed-sub"></p>
+      </div>
+
+      <div id="polaroids-grid" class="polaroids-grid">
+        <!-- Polaroid cards are generated dynamically from POLAROID_MEMORIES in script.js -->
+      </div>
+
+      <!-- Hidden Keepsake Note (Reveals after flipping at least 6 Polaroids) -->
+      <div id="final-polaroid-note" class="final-polaroid-note" hidden>
+        <p>
+          Out of all the photos here, my favourite part isn't the picture—it's knowing I get to call you my brother in every lifetime. 💛
+        </p>
+      </div>
+
+      <div class="polaroids-actions">
+        <button id="scene6-next-btn" class="btn-warm" type="button">
+          Continue
+        </button>
+      </div>
+    </section>
+
+    <!-- Scene 7: Brother & Sister Hug -->
+    <section id="scene-7" class="scene scene-hug" hidden aria-live="polite">
+      <!-- Gentle Floating Background Hearts & Sparkles -->
+      <div class="hug-ambient-bg" aria-hidden="true">
+        <span class="ambient-float af-1">♥</span>
+        <span class="ambient-float af-2">✦</span>
+        <span class="ambient-float af-3">♥</span>
+        <span class="ambient-float af-4">✦</span>
+        <span class="ambient-float af-5">♥</span>
+        <span class="ambient-float af-6">✦</span>
+      </div>
+
+      <div class="hug-card">
+        <!-- [EDITABLE] Customize the heading and heartfelt subtitle below -->
+        <h2 class="hug-heading">No Matter How Much We Fight...</h2>
+        <p class="hug-subtitle">You'll always be my safe place, Anna 💛</p>
+        <!-- [/EDITABLE] -->
+
+        <!-- Interactive Hug & Cheek-Kiss Stage -->
+        <div class="hug-stage">
+          <div id="hug-kiss-popup" class="hug-kiss-popup" hidden>mwah! 💋</div>
+          <div id="hug-hearts-burst" class="hug-hearts-burst" aria-hidden="true"></div>
+
+          <div
+            id="hug-illustration"
+            class="hug-illustration"
+            role="button"
+            tabindex="0"
+            aria-label="Cute illustration of sister hugging and kissing elder brother's cheek. Click to replay hug."
+          >
+            <svg class="hug-svg" viewBox="0 0 320 260" width="320" height="260" aria-hidden="true">
+              <!-- Warm Spotlight Glow Behind Characters -->
+              <circle cx="160" cy="135" r="98" fill="#ffe8d6" opacity="0.7" />
+              <!-- Ground Shadow -->
+              <ellipse cx="162" cy="236" rx="92" ry="11" fill="#e6c3ad" />
+
+              <g id="hug-pair" class="hug-pair">
+                <!-- ================= ELDER BROTHER (Slightly Taller, Left) ================= -->
+                <g id="hug-bro" class="hug-bro">
+                  <!-- Legs & Sneakers -->
+                  <rect x="103" y="190" width="16" height="36" rx="7" fill="#334155" />
+                  <rect x="125" y="190" width="16" height="36" rx="7" fill="#334155" />
+                  <ellipse cx="109" cy="228" rx="12" ry="6" fill="#1e293b" />
+                  <ellipse cx="135" cy="228" rx="12" ry="6" fill="#1e293b" />
+
+                  <!-- Brother's Back Hugging Arm Wrapping Around Sister's Shoulder -->
+                  <path
+                    id="bro-hug-arm"
+                    class="bro-hug-arm"
+                    d="M148 130 Q196 126 218 144"
+                    fill="none"
+                    stroke="#4a6fa5"
+                    stroke-width="16"
+                    stroke-linecap="round"
+                  />
+                  <circle class="bro-hug-hand" cx="219" cy="145" r="7" fill="#f6cbb0" />
+
+                  <!-- Cozy Sweater Torso -->
+                  <rect x="96" y="116" width="54" height="80" rx="22" fill="#4a6fa5" />
+                  <!-- Sweater Neck & Pocket -->
+                  <path d="M108 118 Q123 128 138 118" fill="none" stroke="#365582" stroke-width="4" stroke-linecap="round" />
+                  <rect x="106" y="156" width="34" height="20" rx="8" fill="#3d5e8e" />
+
+                  <!-- Brother's Left Arm (Resting Cozy) -->
+                  <path d="M100 128 Q84 152 94 176" fill="none" stroke="#4a6fa5" stroke-width="15" stroke-linecap="round" />
+                  <circle cx="95" cy="178" r="7" fill="#f6cbb0" />
+
+                  <!-- Neck & Head -->
+                  <rect x="115" y="104" width="16" height="16" rx="6" fill="#eec0a3" />
+                  <circle cx="123" cy="78" r="32" fill="#f6cbb0" />
+
+                  <!-- Ears -->
+                  <circle cx="91" cy="80" r="6.5" fill="#f6cbb0" />
+                  <circle cx="155" cy="80" r="6.5" fill="#f6cbb0" />
+
+                  <!-- Fluffy Hair -->
+                  <path
+                    d="M90 74 C90 42 156 42 156 74 C150 60 138 56 125 60 C112 56 98 60 90 74 Z"
+                    fill="#2c2220"
+                  />
+                  <path d="M106 50 Q122 38 138 49" fill="#2c2220" />
+
+                  <!-- Rosy Cheek Blush -->
+                  <ellipse class="bro-blush" cx="105" cy="87" rx="7" ry="4" fill="#f472b6" opacity="0.28" />
+                  <ellipse class="bro-blush" cx="141" cy="87" rx="7" ry="4" fill="#f472b6" opacity="0.28" />
+
+                  <!-- Idle Eyes (soft blinking) -->
+                  <g class="bro-eyes-open">
+                    <circle class="eye-blink" cx="111" cy="77" r="3.4" fill="#2b211e" />
+                    <circle class="eye-blink" cx="135" cy="77" r="3.4" fill="#2b211e" />
+                    <circle cx="112" cy="75.8" r="1.1" fill="#ffffff" />
+                    <circle cx="136" cy="75.8" r="1.1" fill="#ffffff" />
+                  </g>
+
+                  <!-- Happy Squint-Smile Eyes (shown during hug) -->
+                  <g class="bro-eyes-happy">
+                    <path d="M105 78 Q111 71 117 78" fill="none" stroke="#2b211e" stroke-width="2.6" stroke-linecap="round" />
+                    <path d="M129 78 Q135 71 141 78" fill="none" stroke="#2b211e" stroke-width="2.6" stroke-linecap="round" />
+                  </g>
+
+                  <!-- Cozy Smile -->
+                  <path class="bro-mouth" d="M115 91 Q123 98 131 91" fill="none" stroke="#6b3e2e" stroke-width="2.4" stroke-linecap="round" />
+
+                  <!-- Sweet Cheek-Kiss Blush Mark on Right Cheek -->
+                  <g transform="translate(143, 89)">
+                    <path class="cheek-kiss-mark" d="M0 3 C-3 -2 -8 1 -5 6 L0 10 L5 6 C8 1 3 -2 0 3 Z" fill="#ec4899" />
+                  </g>
+                </g>
+
+                <!-- ================= YOUNGER SISTER (Shorter, Right) ================= -->
+                <g id="hug-sis" class="hug-sis">
+                  <!-- Legs & Sneakers -->
+                  <rect x="184" y="196" width="13" height="32" rx="6" fill="#eec0a3" />
+                  <rect x="204" y="196" width="13" height="32" rx="6" fill="#eec0a3" />
+                  <ellipse cx="189" cy="229" rx="11" ry="5.5" fill="#fb7185" />
+                  <ellipse cx="211" cy="229" rx="11" ry="5.5" fill="#fb7185" />
+
+                  <!-- Cute Coral Dress / Sweater -->
+                  <path d="M174 134 Q200 128 226 134 L232 200 Q200 206 168 200 Z" fill="#f28482" />
+                  <path d="M187 134 Q200 142 213 134" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Hair Back / Ponytail -->
+                  <ellipse cx="228" cy="108" rx="11" ry="19" transform="rotate(-14 228 108)" fill="#2c2220" />
+                  <circle cx="222" cy="94" r="4.5" fill="#fbbf24" />
+
+                  <!-- Neck & Head -->
+                  <rect x="193" y="120" width="14" height="15" rx="5" fill="#eec0a3" />
+                  <circle cx="200" cy="98" r="28" fill="#f6cbb0" />
+
+                  <!-- Hair Bangs -->
+                  <path
+                    d="M172 95 C172 64 228 64 228 95 C220 82 208 78 197 82 C186 78 177 84 172 95 Z"
+                    fill="#2c2220"
+                  />
+
+                  <!-- Cheek Blush -->
+                  <ellipse class="sis-blush" cx="183" cy="106" rx="6" ry="3.5" fill="#f472b6" opacity="0.35" />
+                  <ellipse class="sis-blush" cx="215" cy="106" rx="6" ry="3.5" fill="#f472b6" opacity="0.35" />
+
+                  <!-- Idle Eyes -->
+                  <g class="sis-eyes-open">
+                    <circle class="eye-blink" cx="189" cy="97" r="3.1" fill="#2b211e" />
+                    <circle class="eye-blink" cx="210" cy="97" r="3.1" fill="#2b211e" />
+                    <circle cx="190" cy="96" r="1" fill="#ffffff" />
+                    <circle cx="211" cy="96" r="1" fill="#ffffff" />
+                  </g>
+
+                  <!-- Closed Happy Eyes During Kiss -->
+                  <g class="sis-eyes-kiss">
+                    <path d="M184 97 Q189 92 194 97" fill="none" stroke="#2b211e" stroke-width="2.4" stroke-linecap="round" />
+                    <path d="M205 97 Q210 92 215 97" fill="none" stroke="#2b211e" stroke-width="2.4" stroke-linecap="round" />
+                  </g>
+
+                  <!-- Smile vs Kiss Mouth -->
+                  <path class="sis-mouth-smile" d="M192 110 Q199 116 206 110" fill="none" stroke="#6b3e2e" stroke-width="2.2" stroke-linecap="round" />
+                  <circle class="sis-mouth-kiss" cx="190" cy="111" r="3.2" fill="#e11d48" />
+
+                  <!-- Sister's Hugging Arm Reaching Up Around Brother's Shoulder -->
+                  <path
+                    id="sis-hug-arm"
+                    class="sis-hug-arm"
+                    d="M180 146 Q152 136 135 128"
+                    fill="none"
+                    stroke="#f28482"
+                    stroke-width="14"
+                    stroke-linecap="round"
+                  />
+                  <circle class="sis-hug-hand" cx="134" cy="128" r="6.5" fill="#f6cbb0" />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <p class="hug-tip">Click the hug to replay anytime ✨</p>
+
+        <div class="hug-actions">
+          <button id="send-hug-btn" class="btn-hug" type="button">
+            Give Another Hug 🤗
+          </button>
+          <button id="scene7-next-btn" class="btn-warm" type="button">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 8 (Grand Finale): Birthday Cake & Wish -->
+    <section id="scene-birthday" class="scene scene-birthday" hidden aria-live="polite">
+      <!-- Subtle Floating Golden Sparkles Backdrop -->
+      <div class="birthday-ambient-bg" aria-hidden="true">
+        <span class="bday-sparkle bs-1">✦</span>
+        <span class="bday-sparkle bs-2">✨</span>
+        <span class="bday-sparkle bs-3">✦</span>
+        <span class="bday-sparkle bs-4">💛</span>
+        <span class="bday-sparkle bs-5">✦</span>
+        <span class="bday-sparkle bs-6">✨</span>
+        <span class="bday-sparkle bs-7">✦</span>
+        <span class="bday-sparkle bs-8">✦</span>
+      </div>
+
+      <!-- Golden Confetti Layer -->
+      <div id="birthday-confetti-layer" class="birthday-confetti-layer" aria-hidden="true"></div>
+
+      <header class="birthday-header">
+        <h2 class="birthday-heading">Make a Wish, Yuvan! 🎂✨</h2>
+        <p id="birthday-subtitle" class="birthday-subtitle">
+          Tap the candles (or click below) to blow them out
+        </p>
+      </header>
+
+      <!-- Multi-Tiered Interactive Birthday Cake Stage -->
+      <div class="birthday-stage">
+        <div class="cake-glow-aura" id="cake-glow-aura" aria-hidden="true"></div>
+
+        <div class="birthday-cake" role="group" aria-label="Birthday cake with 5 interactive candles">
+          <!-- 5 Interactive Flickering Candles -->
+          <div id="cake-candles" class="cake-candles">
+            <button class="cake-candle" type="button" data-candle-index="0" aria-label="Candle 1 — click to blow out">
+              <span class="candle-smoke" aria-hidden="true"></span>
+              <span class="candle-flame" aria-hidden="true"></span>
+              <span class="candle-wick" aria-hidden="true"></span>
+              <span class="candle-stick candle-color-1" aria-hidden="true"></span>
+            </button>
+            <button class="cake-candle" type="button" data-candle-index="1" aria-label="Candle 2 — click to blow out">
+              <span class="candle-smoke" aria-hidden="true"></span>
+              <span class="candle-flame" aria-hidden="true"></span>
+              <span class="candle-wick" aria-hidden="true"></span>
+              <span class="candle-stick candle-color-2" aria-hidden="true"></span>
+            </button>
+            <button class="cake-candle" type="button" data-candle-index="2" aria-label="Candle 3 — click to blow out">
+              <span class="candle-smoke" aria-hidden="true"></span>
+              <span class="candle-flame" aria-hidden="true"></span>
+              <span class="candle-wick" aria-hidden="true"></span>
+              <span class="candle-stick candle-color-3" aria-hidden="true"></span>
+            </button>
+            <button class="cake-candle" type="button" data-candle-index="3" aria-label="Candle 4 — click to blow out">
+              <span class="candle-smoke" aria-hidden="true"></span>
+              <span class="candle-flame" aria-hidden="true"></span>
+              <span class="candle-wick" aria-hidden="true"></span>
+              <span class="candle-stick candle-color-4" aria-hidden="true"></span>
+            </button>
+            <button class="cake-candle" type="button" data-candle-index="4" aria-label="Candle 5 — click to blow out">
+              <span class="candle-smoke" aria-hidden="true"></span>
+              <span class="candle-flame" aria-hidden="true"></span>
+              <span class="candle-wick" aria-hidden="true"></span>
+              <span class="candle-stick candle-color-5" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Top Tier -->
+          <div class="cake-tier cake-tier-top" aria-hidden="true">
+            <div class="cake-icing">
+              <span class="icing-drip d-1"></span>
+              <span class="icing-drip d-2"></span>
+              <span class="icing-drip d-3"></span>
+              <span class="icing-drip d-4"></span>
+              <span class="icing-drip d-5"></span>
+            </div>
+            <div class="cake-sprinkles">
+              <span class="sprinkle s-1"></span>
+              <span class="sprinkle s-2"></span>
+              <span class="sprinkle s-3"></span>
+              <span class="sprinkle s-4"></span>
+              <span class="sprinkle s-5"></span>
+            </div>
+          </div>
+
+          <!-- Middle Tier -->
+          <div class="cake-tier cake-tier-mid" aria-hidden="true">
+            <div class="cake-icing">
+              <span class="icing-drip d-1"></span>
+              <span class="icing-drip d-2"></span>
+              <span class="icing-drip d-3"></span>
+              <span class="icing-drip d-4"></span>
+              <span class="icing-drip d-5"></span>
+              <span class="icing-drip d-6"></span>
+            </div>
+            <div class="cake-ribbon"></div>
+          </div>
+
+          <!-- Bottom Tier -->
+          <div class="cake-tier cake-tier-base" aria-hidden="true">
+            <div class="cake-icing">
+              <span class="icing-drip d-1"></span>
+              <span class="icing-drip d-2"></span>
+              <span class="icing-drip d-3"></span>
+              <span class="icing-drip d-4"></span>
+              <span class="icing-drip d-5"></span>
+              <span class="icing-drip d-6"></span>
+              <span class="icing-drip d-7"></span>
+            </div>
+            <div class="cake-scallop-trim"></div>
+          </div>
+
+          <!-- Cake Stand Plate -->
+          <div class="cake-plate" aria-hidden="true"></div>
+          <div class="cake-pedestal" aria-hidden="true"></div>
+        </div>
+
+        <div class="cake-controls">
+          <button id="blow-all-candles-btn" class="btn-blow-candles" type="button">
+            Blow Out All Candles 🌬️
+          </button>
+        </div>
+      </div>
+
+      <!-- Heartfelt Birthday Wish Card (Reveals Once All Candles Are Blown Out) -->
+      <article id="birthday-wish-card" class="birthday-wish-card" hidden>
+        <h3 class="birthday-wish-heading">Happy Birthday, Anna! 🥳💛</h3>
+
+        <div class="birthday-wish-body">
+          <p>
+            Another year older and smarter than me—but seriously, thank you for being my
+            constant protector, my best friend, and my favourite human to annoy.
+          </p>
+          <p>
+            You have made so many sacrifices for us, truly being like a second father to me.
+            I love you so much. Unakku kidaikathathu kooda enakku kidaikkanum nu nenaikira
+            person nee. Naa ketu oru vishayathukku kooda nee 'no' nu sonnathe illa. Ennai
+            vida enoda future romba nalla, successful-ah irukkanum nu nenaikira first person
+            nee thaan—and enakku eppadi ellam help panna mudiyumo, avlo help panni irukka.
+          </p>
+          <p>
+            May this year bring you everything you've been working so hard for. Always
+            cheering the loudest for you—thank you and love you so much!
+          </p>
+          <p class="birthday-wish-signoff">
+            — Forever your annoying little sister, Harini ❤️
+          </p>
+        </div>
+
+        <footer class="birthday-wish-actions">
+          <button id="relight-candles-btn" class="btn-relight" type="button">
+            Relight Candles 🕯️
+          </button>
+          <button id="replay-journey-btn" class="btn-birthday-replay" type="button">
+            Replay Journey From Beginning ↺
+          </button>
+        </footer>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
